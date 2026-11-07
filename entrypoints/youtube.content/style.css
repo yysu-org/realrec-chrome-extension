@@ -1,0 +1,31 @@
+#realrec-chip {
+  margin: 12px 0;
+  font-family: "PingFang TC", "Noto Sans TC", sans-serif;
+}
+
+#realrec-chip button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  margin: 0;
+  padding: 10px 12px;
+  text-align: left;
+  background: #f7f8f7;
+  color: #1c2824;
+  border: 1px solid #e1e4e2;
+  border-radius: 0;
+  box-shadow: none;
+  cursor: pointer;
+  font: 14px/1.4 "PingFang TC", "Noto Sans TC", sans-serif;
+}
+
+#realrec-chip button:focus-visible {
+  outline: 2px solid #1c2824;
+  outline-offset: 2px;
+}
+
+#realrec-chip .realrec-mark {
+  font-weight: 700;
+  flex: none;
+}

@@ -1,0 +1,9 @@
+node_modules
+.output
+.wxt
+.pnpm-store
+stats.html
+*.zip
+.env
+.env.*
+!.env.example

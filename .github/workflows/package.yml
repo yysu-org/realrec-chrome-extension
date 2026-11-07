@@ -12,16 +12,15 @@ concurrency:
   group: package-${{ github.ref }}
   cancel-in-progress: true
 
+# Release 要寫 contents。工作不能要求比這裡更高的權限，否則整份 workflow 會在啟動前失敗。
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   package:
     name: test and zip
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    permissions:
-      contents: write
 
     steps:
       - name: Checkout

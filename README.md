@@ -23,6 +23,23 @@ pnpm dev
 
 Chrome 打開 `chrome://extensions`，開啟開發人員模式，載入未封裝項目，選 `.output/chrome-mv3`。
 
+本機也可以直接打包：
+
+```bash
+pnpm zip
+```
+
+zip 在 `.output/`。解壓後同樣用「載入未封裝項目」，選裡面有 `manifest.json` 的資料夾。
+
+## 從 GitHub 下載安裝包
+
+Actions 的 [Package](https://github.com/yysu-org/realrec-chrome-extension/actions/workflows/package.yml) 會跑測試並打出同一個 zip。先在 repo 的 Actions secrets 放兩個值，跟實薦網站相同：
+
+- `VITE_SUPABASE_URL`：`NEXT_PUBLIC_SUPABASE_URL`
+- `VITE_SUPABASE_PUBLISHABLE_KEY`：`NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`
+
+然後手動跑 Package，到該次執行的 Artifacts 下載 zip。推上 `v*` tag 時，同一包會掛到 GitHub Release。
+
 ## Supabase 重新導向
 
 登入完成後會回到：

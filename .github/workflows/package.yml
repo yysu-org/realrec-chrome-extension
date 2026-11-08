@@ -74,13 +74,10 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/v')
         env:
           GH_TOKEN: ${{ github.token }}
+          RELEASE_NOTES: |
+            解壓後，Chrome 打開 chrome://extensions，開啟開發人員模式，選「載入未封裝項目」，指向解壓出來、裡面有 manifest.json 的資料夾。
+
+            登入還需要 Supabase Auth 的 Redirect URLs 有 https://copmpdbhhapmohppfjofhknebekhbghi.chromiumapp.org/
         run: |
           zip_path=$(echo .output/*-chrome.zip)
-          gh release create "$GITHUB_REF_NAME" "$zip_path" \
-            --title "$GITHUB_REF_NAME" \
-            --notes "$(cat <<'EOF'
-解壓後，Chrome 打開 chrome://extensions，開啟開發人員模式，選「載入未封裝項目」，指向解壓出來、裡面有 manifest.json 的資料夾。
-
-登入還需要 Supabase Auth 的 Redirect URLs 有 https://copmpdbhhapmohppfjofhknebekhbghi.chromiumapp.org/
-EOF
-)"
+          gh release create "$GITHUB_REF_NAME" "$zip_path" --title "$GITHUB_REF_NAME" --notes "$RELEASE_NOTES"

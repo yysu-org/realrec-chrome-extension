@@ -68,6 +68,7 @@ jobs:
         with:
           name: realrec-chrome-extension-${{ github.run_number }}
           path: .output/*-chrome.zip
+          include-hidden-files: true
           if-no-files-found: error
 
       - name: Publish GitHub Release
